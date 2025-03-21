@@ -1,3 +1,12 @@
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.csproj.AssemblyReference.cache
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.GeneratedMSBuildEditorConfig.editorconfig
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.AssemblyInfoInputs.cache
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.AssemblyInfo.cs
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.csproj.CoreCompileInputs.cache
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.MvcApplicationPartsAssemblyInfo.cache
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.RazorAssemblyInfo.cache
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.RazorAssemblyInfo.cs
+/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.sourcelink.json
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/bin/Debug/net9.0/appsettings.Development.json
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/bin/Debug/net9.0/appsettings.json
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/bin/Debug/net9.0/GradesMvc.staticwebassets.runtime.json
@@ -12,14 +21,6 @@
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/bin/Debug/net9.0/MySqlConnector.dll
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/bin/Debug/net9.0/Pomelo.EntityFrameworkCore.MySql.dll
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.csproj.AssemblyReference.cache
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.GeneratedMSBuildEditorConfig.editorconfig
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.AssemblyInfoInputs.cache
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.AssemblyInfo.cs
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.csproj.CoreCompileInputs.cache
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.MvcApplicationPartsAssemblyInfo.cache
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.RazorAssemblyInfo.cache
-/Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/GradesMvc.RazorAssemblyInfo.cs
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/scopedcss/bundle/GradesMvc.styles.css
 /Applications/XAMPP/xamppfiles/htdocs/GradesMvc/obj/Debug/net9.0/scopedcss/projectbundle/GradesMvc.bundle.scp.css

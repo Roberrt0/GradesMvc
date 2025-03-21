@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Grades.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Grades.Controllers
 {
@@ -90,6 +91,21 @@ namespace Grades.Controllers
                 _context.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        // mostrar las actividades de una materia
+        public IActionResult Details(int id)
+        {
+            var subject = _context.Subjects
+                .Include(s => s.Activities) // Incluye las actividades relacionadas
+                .FirstOrDefault(s => s.Id == id);
+
+            if (subject == null)
+            {
+                return NotFound();
+            }
+
+            return View(subject);
         }
     }
 }
