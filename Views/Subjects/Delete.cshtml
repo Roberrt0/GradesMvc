@@ -1,0 +1,12 @@
+@model Grades.Models.Subject
+
+<h2>Eliminar Materia</h2>
+<h3>¿Estás seguro de que quieres eliminar esta materia?</h3>
+<div>
+    <h4>@Model.Name</h4>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver a la lista</a>
+    </form>
+</div>

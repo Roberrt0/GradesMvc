@@ -1,0 +1,16 @@
+@model Grades.Models.Subject
+
+<h2>Crear Nueva Materia</h2>
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Crear" class="btn btn-primary" />
+    </div>
+</form>
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
