@@ -194,5 +194,75 @@ namespace Grades.Controllers
             ViewBag.SubjectId = subjectId;
             return View(activity);
         }
+
+        // MODIFICAR Y ELIMINAR ACTIVIDADES:
+        // GET: Mostrar el formulario de edición
+        [HttpGet]
+        public IActionResult EditActivity(int id)
+        {
+            var activity = _context.Activities.Find(id);
+            if (activity == null)
+            {
+                return NotFound();
+            }
+            return View(activity);
+        }
+
+        // POST: Guardar cambios
+        [HttpPost]
+        public IActionResult EditActivity(int id, Activity activity)
+        {
+            if (id != activity.Id)
+            {
+                return NotFound();
+            }
+
+            ModelState.Remove("Subject");
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(activity);
+                    _context.SaveChanges();
+                    return RedirectToAction("Details", new { id = activity.SubjectId });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al actualizar la actividad: {ex.Message}");
+                }
+            }
+
+            return View(activity);
+        }
+
+        // GET: Confirmar eliminación
+        [HttpGet]
+        public IActionResult DeleteActivity(int id)
+        {
+            var activity = _context.Activities.Find(id);
+            if (activity == null)
+            {
+                return NotFound();
+            }
+            return View(activity);
+        }
+
+        // POST: Ejecutar eliminación
+        [HttpPost, ActionName("DeleteActivity")]
+        public IActionResult DeleteActivityConfirmed(int id)
+        {
+            var activity = _context.Activities.Find(id);
+            if (activity == null)
+            {
+                return NotFound();
+            }
+
+            _context.Activities.Remove(activity);
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", new { id = activity.SubjectId });
+        }
+
     }
 }

@@ -12,6 +12,7 @@
             <th>Tipo</th>
             <th>Calificación</th>
             <th>Fecha</th>
+            <th>Comentarios</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,11 @@
                 <td>@activity.Type</td>
                 <td>@activity.Grade</td>
                 <td>@activity.Date.ToShortDateString()</td>
+                <td>@(activity.Comments ?? "Sin comentarios adicionales")</td>
+                <td>
+                    <a asp-action="EditActivity" asp-route-id="@activity.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="DeleteActivity" asp-route-id="@activity.Id" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que deseas eliminar esta actividad?');">Eliminar</a>
+                </td>
             </tr>
         }
     </tbody>

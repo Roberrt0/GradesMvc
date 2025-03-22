@@ -19,7 +19,7 @@ namespace Grades.Models
         public DateTime Date { get; set; }
 
         [StringLength(500, ErrorMessage = "Los comentarios no pueden tener más de 500 caracteres.")]
-        public string Comments { get; set; } // Campo opcional para comentarios
+        public string? Comments { get; set; } // Campo opcional para comentarios
 
         // Relación con Subject (no es requerida)
         public int SubjectId { get; set; } // Clave foránea para la relación con Subject
