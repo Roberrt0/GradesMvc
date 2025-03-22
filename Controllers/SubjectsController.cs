@@ -107,5 +107,34 @@ namespace Grades.Controllers
 
             return View(subject);
         }
+
+        // Acción para mostrar el formulario de creación de una nueva actividad
+        public IActionResult CreateActivity(int subjectId)
+        {
+            var subject = _context.Subjects.Find(subjectId);
+            if (subject == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.SubjectId = subjectId;
+            return View();
+        }
+
+        // Acción para procesar el formulario de creación de una nueva actividad
+        [HttpPost]
+        public IActionResult CreateActivity(int subjectId, Activity activity)
+        {
+            if (ModelState.IsValid)
+            {
+                activity.SubjectId = subjectId; // Asigna el SubjectId
+                _context.Activities.Add(activity);
+                _context.SaveChanges();
+                return RedirectToAction("Details", new { id = subjectId }); // Redirige a los detalles de la materia
+            }
+
+            ViewBag.SubjectId = subjectId;
+            return View(activity); // Si hay errores, muestra la vista con los errores
+        }
     }
 }

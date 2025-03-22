@@ -1,0 +1,39 @@
+@model Grades.Models.Activity
+
+<h2>Crear Nueva Actividad</h2>
+
+<form asp-action="CreateActivity" asp-controller="Subjects" method="post">
+    <input type="hidden" name="subjectId" value="@ViewBag.SubjectId" />
+
+    <div class="form-group">
+        <label asp-for="Type" class="control-label">Tipo de Actividad</label>
+        <input asp-for="Type" class="form-control" />
+        <span asp-validation-for="Type" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Grade" class="control-label">Calificación</label>
+        <input asp-for="Grade" class="form-control" />
+        <span asp-validation-for="Grade" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date" class="control-label">Fecha</label>
+        <input asp-for="Date" class="form-control" type="date" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Comments" class="control-label">Comentarios u Observaciones</label>
+        <textarea asp-for="Comments" class="form-control"></textarea>
+        <span asp-validation-for="Comments" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crear" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Details" asp-route-id="@ViewBag.SubjectId">Volver a la lista de actividades</a>
+</div>

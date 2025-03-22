@@ -21,6 +21,9 @@ namespace Grades.Models
         [Required(ErrorMessage = "La fecha es obligatoria.")]
         public DateTime Date { get; set; }
 
+        [StringLength(500, ErrorMessage = "Los comentarios no pueden tener más de 500 caracteres.")]
+        public string Comments { get; set; }
+
         // Relación con Subject
         public virtual Subject Subject { get; set; }
     }
