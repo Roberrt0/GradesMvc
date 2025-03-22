@@ -7,9 +7,6 @@ namespace Grades.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public int SubjectId { get; set; } // Clave foránea para la relación con Subject
-
         [Required(ErrorMessage = "El tipo de actividad es obligatorio.")]
         [StringLength(50, ErrorMessage = "El tipo no puede tener más de 50 caracteres.")]
         public string Type { get; set; } // Tarea, Actividad, Prueba, etc.
@@ -22,9 +19,10 @@ namespace Grades.Models
         public DateTime Date { get; set; }
 
         [StringLength(500, ErrorMessage = "Los comentarios no pueden tener más de 500 caracteres.")]
-        public string Comments { get; set; }
+        public string Comments { get; set; } // Campo opcional para comentarios
 
-        // Relación con Subject
-        public virtual Subject Subject { get; set; }
+        // Relación con Subject (no es requerida)
+        public int SubjectId { get; set; } // Clave foránea para la relación con Subject
+        public virtual Subject? Subject { get; set; }
     }
 }

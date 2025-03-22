@@ -9,15 +9,16 @@ namespace Grades.Models
         }
 
         public DbSet<Subject> Subjects { get; set; }
-        public DbSet<Activity> Activities { get; set; } // Nuevo DbSet para Activity
+        public DbSet<Activity> Activities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Configura la relación entre Subject y Activity
-            modelBuilder.Entity<Activity>()
-                .HasOne(a => a.Subject)
-                .WithMany(s => s.Activities)
-                .HasForeignKey(a => a.SubjectId);
+            modelBuilder.Entity<Subject>()
+                .HasMany(s => s.Activities)
+                .WithOne(a => a.Subject)
+                .HasForeignKey(a => a.SubjectId)
+                .OnDelete(DeleteBehavior.Cascade); // Opcional: Elimina las actividades si se elimina la materia
         }
     }
 }

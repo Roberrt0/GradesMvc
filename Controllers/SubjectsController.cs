@@ -31,12 +31,40 @@ namespace Grades.Controllers
         [HttpPost]
         public IActionResult Create(Subject subject)
         {
+            Console.WriteLine("Iniciando acción Create...");
+
             if (ModelState.IsValid)
             {
-                _context.Subjects.Add(subject);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                Console.WriteLine("El modelo es válido.");
+
+                try
+                {
+                    Console.WriteLine("Agregando la materia al contexto...");
+                    _context.Subjects.Add(subject);
+
+                    Console.WriteLine("Guardando cambios en la base de datos...");
+                    _context.SaveChanges();
+
+                    Console.WriteLine("Materia creada exitosamente. Redirigiendo a la lista de materias...");
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al guardar la materia: {ex.Message}");
+                    // Puedes agregar más detalles del error si es necesario
+                    Console.WriteLine($"StackTrace: {ex.StackTrace}");
+                }
             }
+            else
+            {
+                Console.WriteLine("El modelo no es válido. Errores de validación:");
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"- {error.ErrorMessage}");
+                }
+            }
+
+            Console.WriteLine("Mostrando la vista con errores...");
             return View(subject);
         }
 
@@ -125,16 +153,46 @@ namespace Grades.Controllers
         [HttpPost]
         public IActionResult CreateActivity(int subjectId, Activity activity)
         {
+            Console.WriteLine("Iniciando acción CreateActivity...");
+
             if (ModelState.IsValid)
             {
-                activity.SubjectId = subjectId; // Asigna el SubjectId
-                _context.Activities.Add(activity);
-                _context.SaveChanges();
-                return RedirectToAction("Details", new { id = subjectId }); // Redirige a los detalles de la materia
+                Console.WriteLine("El modelo es válido.");
+
+                try
+                {
+                    // Asigna el SubjectId a la actividad
+                    activity.SubjectId = subjectId;
+
+                    activity.Subject = _context.Subjects.Find(subjectId);
+
+                    Console.WriteLine("Agregando la actividad al contexto...");
+                    _context.Activities.Add(activity);
+
+                    Console.WriteLine("Guardando cambios en la base de datos...");
+                    _context.SaveChanges();
+
+                    Console.WriteLine("Actividad creada exitosamente. Redirigiendo a los detalles de la materia...");
+                    return RedirectToAction("Details", new { id = subjectId });
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al guardar la actividad: {ex.Message}");
+                    Console.WriteLine($"StackTrace: {ex.StackTrace}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("El modelo no es válido. Errores de validación:");
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"- {error.ErrorMessage}");
+                }
             }
 
+            Console.WriteLine("Mostrando la vista con errores...");
             ViewBag.SubjectId = subjectId;
-            return View(activity); // Si hay errores, muestra la vista con los errores
+            return View(activity);
         }
     }
 }

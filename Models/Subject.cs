@@ -11,7 +11,7 @@ namespace Grades.Models
         [StringLength(100, ErrorMessage = "El nombre no puede tener más de 100 caracteres.")]
         public string Name { get; set; }
 
-        // Relación con Activity
-        public virtual ICollection<Activity> Activities { get; set; }
+        // Empieza con una lista vacia de actividades
+        public virtual ICollection<Activity> Activities { get; set; } = new List<Activity>();
     }
 }
